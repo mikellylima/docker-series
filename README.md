@@ -49,3 +49,20 @@ docker ps -a
 ```cmd
 docker run -p<pc_port>:<cont_port> <image_name>
 ```
+
+- Verificando os logs do container
+```cmd
+docker logs <container_id>
+docker logs <container_name>
+```
+
+- Criando um container em detached mode (-d) baiding port(-p) e nomeando o container
+```cmd
+docker run -d -p<pc_port>:<cont_port> --name <container_name>
+```
+
+- Acessando o terminal do container. Entra dentro do container como um root user. Use o comando exit para sair do terminal.
+```cmd
+docker exec -it <container_id> /bin/bash
+docker exec -it <container_name> /bin/bash
+```
