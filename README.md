@@ -66,3 +66,13 @@ docker run -d -p<pc_port>:<cont_port> --name <container_name>
 docker exec -it <container_id> /bin/bash
 docker exec -it <container_name> /bin/bash
 ```
+
+- Docker networks
+```cmd
+docker network ls
+```
+
+- Criar uma network
+```cmd
+docker network create <network_name>
+```
