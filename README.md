@@ -76,3 +76,53 @@ docker network ls
 ```cmd
 docker network create <network_name>
 ```
+
+---------------
+## Treinamento DevOps
+```cmd
+docker container run hello-world
+
+# Listar todos os containers
+docker container ls -a
+
+docker container run -e POSTGRES_PASSWORD=Pg@123 -e POSTGRES_USER=desafiodocker -e POSTGRES_DB=desafiodocker -d -p 5432:5432 postgres
+
+# o -f força a exclusão do container quando ele tiver rodando
+docker container rm -f ba37f3e0756e
+```
+
+- Dockerfile
+  - FROM: define qual é a minha imagem base.
+  - WORKDIR: cria um diretório de trabalho e entra dentro dele (mkdir + cd).
+  - COPY: pega um arquivo ou diretório e coloca para dentro da imagem.
+  - RUN: Comando de construção, executa uma instrução dentro da imagem.
+  - CMD: instrução de inicialização, na hora que executa o container.
+
+- Construção da imagem
+```cmd
+# -t para nomear a imagem. O contexto é o direrótio que vai ser utilizado para construir a minha imagem.
+docker build -t conversao-distancia .
+```
+```cmd
+# ver a imagem
+docker image ls
+
+# Executar o container
+docker container run -d -p 5000:5000 conversao-distancia
+```
+
+- Construção da imagem versionada.
+```cmd
+docker build -t mikellylima/conversao-distancia-desafio:v1 .
+```
+
+- Autenticação, push da imagem criada e criação da latest
+```cmd
+docker login
+
+docker push mikellylima/conversao-distancia-desafio:v1
+
+docker tag mikellylima/conversao-distancia-desafio:v1 mikellylima/conversao-distancia-desafio:latest
+
+docker push mikellylima/conversao-distancia-desafio:v1
+```
